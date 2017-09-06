@@ -28,23 +28,11 @@ for x in range(1,max(pipes)+1):
         max_profit = p
         optimal_l = x
 
-
-needless_pipes = False
 # checks if any pipe is taking away from profit at optimal_l
 for x in set(pipes):
     if profit(optimal_l,x,nums[1],nums[0]) < 0:
-        pipes.remove(x)
-        needless_pipes = True
+        max_profit -= profit(optimal_l,x,nums[1],nums[0])
 
-#recalculates max_profit if any pipes were just removed
-if needless_pipes:
-    for x in range(1,max(pipes)+1):
-        p = 0
-        for y in pipes:
-            p += profit(x,y,nums[1],nums[0])
-            if p > max_profit:
-                max_profit = p
-                optimal_l = x
 
 
 print (max_profit)
