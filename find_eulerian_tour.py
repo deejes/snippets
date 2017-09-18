@@ -34,4 +34,4 @@ def find_eulerian_tour(graph):
             return False
     return result
 
-print find_eulerian_tour(a1)
+#print find_eulerian_tour(a1)
